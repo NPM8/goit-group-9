@@ -1,0 +1,14 @@
+#+TITLE: Presentation for GOIT
+#+DESCRIPTION: Presentation for goit group 9
+#+AUTHOR: Dawid NPM8 Małysa
+
+** Description
+    This respository containse code and presentation for group 9 
+
+** Build
+   - Run =parcel= with npm
+        #+begin_src shell
+        npm install
+        npm run start
+        #+end_src
+
