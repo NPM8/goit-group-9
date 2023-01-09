@@ -1,0 +1,478 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Zmienne i typy w JS</title><meta name="author" content="Dawid NPM8 Małysa"><meta name="description" content="Zajecia sa wprowadzeniem do jezyka programownia JavaScript w przegladarce"><meta name="keywords" content><style>.underline{text-decoration:underline}</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/moon.css" id="theme"><script>if(window.location.search.match(/print-pdf/gi)){var link=document.createElement("link");link.rel="stylesheet",link.type="text/css",link.href="https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css",document.getElementsByTagName("head")[0].appendChild(link)}</script></head><body> <div class="reveal"> <div class="slides"> <section id="sec-title-slide"><h1 class="title">Zmienne i typy w JS</h1><p class="subtitle"></p> <h2 class="author">Dawid NPM8 Małysa</h2> </section> <section> <section id="slide-orge665107"> <h2 id="orge665107"><span class="section-number-2">1.</span> Zawartość</h2> <ul> <li><a href="#/slide-orge665107">Zawartość</a></li> <li><a href="#/slide-org9896f5b">Console.log</a></li> <li><a href="#/slide-org01fe1bd">Właściowości</a></li> <li><a href="#/slide-orgcb47462">Metody</a></li> <li><a href="#/slide-org44b52f0">Zmienna</a></li> <li><a href="#/slide-orgdf99110">Undefined</a></li> <li><a href="#/slide-org4feeaa8">Typeof</a></li> </ul> </section> <section id="slide-orge665107-split"> <ul> <li><a href="#/slide-org4df296a">operatory</a> <ul> <li><a href="#/slide-org909ee51">Atytmetyczne:</a></li> <li><a href="#/slide-org6adbef1">porownania:</a></li> </ul></li> <li><a href="#/slide-orgb8fe6fb">Konwersja String -&gt; Number</a> <ul> <li><a href="#/slide-org5181e39">Za pomoca Number()</a></li> <li><a href="#/slide-orgf62ce9b">parseInt</a></li> <li><a href="#/slide-orgd47af0b">parseFloat</a></li> </ul></li> <li><a href="#/slide-org40791b6">isNaN?</a></li> <li><a href="#/slide-orgf7660e8">Jak naprawic float?</a> <ul> <li><a href="#/slide-org4a6b3ce">Mnozenia</a></li> <li><a href="#/slide-org066a5bb">Metoda obiektu number</a></li> </ul></li> </ul> </section> <section id="slide-orge665107-split"> <ul> <li><a href="#/slide-orgfa98dd8">string</a> <ul> <li><a href="#/slide-orgf9ade95">dodawanie</a></li> <li><a href="#/slide-org95ff62d">wiersze szablonowe</a></li> <li><a href="#/slide-org30b2dab">prownywanie stringow</a></li> <li><a href="#/slide-org5a09d81">replace</a></li> <li><a href="#/slide-orgd7d3094">slice</a></li> <li><a href="#/slide-orgbcb674c">substing</a></li> </ul></li> <li><a href="#/slide-org8528f22">Operatory logiczne</a> <ul> <li><a href="#/slide-orgfc1d65b">AND</a></li> <li><a href="#/slide-org2e8604e">OR</a></li> <li><a href="#/slide-org3f0ba78">NO</a></li> <li><a href="#/slide-orgb8c09e3">dla AND</a></li> <li><a href="#/slide-org0d5b074">dla OR</a></li> </ul></li> </ul> </section> </section> <section> <section id="slide-org9896f5b"> <h2 id="org9896f5b"><span class="section-number-2">2.</span> Console.log</h2> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;JavaScript is awesome&quot;</span>.length)
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-org01fe1bd"> <h2 id="org01fe1bd"><span class="section-number-2">3.</span> Właściowości</h2> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;JavaScript is awesome&quot;</span>.length)
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-orgcb47462"> <h2 id="orgcb47462"><span class="section-number-2">4.</span> Metody</h2> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+<span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>username</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;Mango&quot;</span>;
+<span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Username is Mango</span>
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;Username is&quot;</span>, username);
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-org44b52f0"> <h2 id="org44b52f0"><span class="section-number-2">5.</span> Zmienna</h2> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+<span style=&quot;color: #bb9af7;&quot;>let</span> <span style=&quot;color: #c0caf5;&quot;>a</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>10</span> * <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>2</span>;
+<span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>b</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>20</span>;
+a = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>40</span>;
+console.log(a, b)
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-orgdf99110"> <h2 id="orgdf99110"><span class="section-number-2">6.</span> Undefined</h2> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+<span style=&quot;color: #bb9af7;&quot;>let</span> <span style=&quot;color: #c0caf5;&quot;>a</span>;
+console.log(a)
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-org4feeaa8"> <h2 id="org4feeaa8"><span class="section-number-2">7.</span> Typeof</h2> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+<span style=&quot;color: #bb9af7;&quot;>let</span> <span style=&quot;color: #c0caf5;&quot;>username</span>;
+console.log(<span style=&quot;color: #bb9af7;&quot;>typeof</span> username); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;undefined&quot;</span>
+
+<span style=&quot;color: #bb9af7;&quot;>let</span> <span style=&quot;color: #c0caf5;&quot;>inputValue</span> = <span style=&quot;color: #ff9e64;&quot;>null</span>;
+console.log(<span style=&quot;color: #bb9af7;&quot;>typeof</span> inputValue); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;object&quot;</span>
+
+<span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>quantity</span> = .<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>4</span>;
+console.log(<span style=&quot;color: #bb9af7;&quot;>typeof</span> quantity); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;number&quot;</span>
+
+<span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>message</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;JavaScript is awesome!&quot;</span>;
+console.log(<span style=&quot;color: #bb9af7;&quot;>typeof</span> message); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;string&quot;</span>
+
+<span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>isSidebarOpen</span> = <span style=&quot;color: #ff9e64;&quot;>false</span>;
+console.log(<span style=&quot;color: #bb9af7;&quot;>typeof</span> isSidebarOpen);
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-org4df296a"> <h2 id="org4df296a"><span class="section-number-2">8.</span> operatory</h2> <div class="outline-text-2" id="text-8"> </div> </section> <section id="slide-org909ee51"> <h3 id="org909ee51"><span class="section-number-3">8.1.</span> Atytmetyczne:</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+ <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>x</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>10</span>;
+ <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>y</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>5</span>;
+ 
+ <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Dodawanie</span>
+ console.log(x + y); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>15</span>
+ 
+ <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Odejmowanie</span>
+ console.log(x - y); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>5</span>
+ 
+ <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Mno&#380;enie</span>
+ console.log(x * y); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>50</span>
+ 
+ <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Dzielenie</span>
+ console.log(x / y); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>2</span>
+ 
+ <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Reszta po dzieleniu</span>
+ console.log(x % y); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>0</span>
+ 
+ <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Mno&#380;enie z zamian&#261;</span>
+ <span style=&quot;color: #bb9af7;&quot;>let</span> <span style=&quot;color: #c0caf5;&quot;>value</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>5</span>;
+ 
+ <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Analogiczne do value = value + 10;</span>
+ <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>value = value + 10;</span>
+ value += <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>10</span>;
+ console.log(value);
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org6adbef1"> <h3 id="org6adbef1"><span class="section-number-3">8.2.</span> porownania:</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+<span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>x</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>5</span>;
+<span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>y</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;100&quot;</span>;
+<span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>z</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>5</span>;
+
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;x &gt; y:&quot;</span>, x &gt; y); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;x &lt; y:&quot;</span>, x &lt; y); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;x &lt; z:&quot;</span>, x &lt; z); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;x &lt;= z:&quot;</span>, x &lt;= z); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;x &lt;= y:&quot;</span>, x &lt;= y); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;x === y:&quot;</span>, x === y); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;x === z:&quot;</span>, x === z); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;x !== y:&quot;</span>, x !== y); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;x !== z:&quot;</span>, x !== z);
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-orgb8fe6fb"> <h2 id="orgb8fe6fb"><span class="section-number-2">9.</span> Konwersja String -&gt; Number</h2> <p> W JS mozna zamienic string na liczbe za pomoca Number(), metody parseInt() lub parseFloat() ktore dobieramy zaleznie od potrzeb </p> </section> <section id="slide-org5181e39"> <h3 id="org5181e39"><span class="section-number-3">9.1.</span> Za pomoca Number()</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>valueA</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;5&quot;</span>;
+    console.log(Number(valueA)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>5</span>
+    console.log(<span style=&quot;color: #bb9af7;&quot;>typeof</span> Number(valueA)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;number&quot;</span>
+
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>valueB</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;random string&quot;</span>;
+    console.log(Number(valueB)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>NaN</span>
+    console.log(<span style=&quot;color: #bb9af7;&quot;>typeof</span> Number(valueB));
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-orgf62ce9b"> <h3 id="orgf62ce9b"><span class="section-number-3">9.2.</span> parseInt</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    console.log(Number.parseInt(<span style=&quot;color: #9ece6a;&quot;>&quot;03ap&quot;</span>, <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>16</span>)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>5</span>
+    console.log(Number.parseInt(<span style=&quot;color: #9ece6a;&quot;>&quot;01qwe74&quot;</span>)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>12</span>
+    console.log(Number.parseInt(<span style=&quot;color: #9ece6a;&quot;>&quot;12.46qwe79&quot;</span>)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>12</span>
+    console.log(Number.parseInt(<span style=&quot;color: #9ece6a;&quot;>&quot;qweqwe12&quot;</span>)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>NaN</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-orgd47af0b"> <h3 id="orgd47af0b"><span class="section-number-3">9.3.</span> parseFloat</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    console.log(Number.parseFloat(<span style=&quot;color: #9ece6a;&quot;>&quot;5px&quot;</span>)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>5</span>
+    console.log(Number.parseFloat(<span style=&quot;color: #9ece6a;&quot;>&quot;12qwe74&quot;</span>)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>12</span>
+    console.log(Number.parseFloat(<span style=&quot;color: #9ece6a;&quot;>&quot;12.46qwe79&quot;</span>)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>12.46</span>
+    console.log(Number.parseFloat(<span style=&quot;color: #9ece6a;&quot;>&quot;.1qweqwe&quot;</span>)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>NaN</span>
+ 
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-org40791b6"> <h2 id="org40791b6"><span class="section-number-2">10.</span> isNaN?</h2> <p> <code>Number.isNaN()</code> sprawdza czy wartosc <b>NIE</b> jest liczba, jesli tak to zwraca true, inaczej zwraca false </p> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+   <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>validNumber</span> = Number(<span style=&quot;color: #9ece6a;&quot;>&quot;51&quot;</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>51</span>
+   console.log(Number.isNaN(validNumber)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+
+   <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>invalidNumber</span> = Number(<span style=&quot;color: #9ece6a;&quot;>&quot;qweqwe&quot;</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>NaN</span>
+   console.log(Number.isNaN(invalidNumber)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-orgf7660e8"> <h2 id="orgf7660e8"><span class="section-number-2">11.</span> Jak naprawic float?</h2> <p> W komputerze nie ma mozliwosci na zapisanie wyniku dowolnego dzielenia ulamka, wiec sa one zapisane w pewnym formie przyblizenia za pomoca specjalnego algorytmu, dlatego tez wyniki ich artmetyki moga odbiegac od tego co my robimy &ldquo;na kartce&rdquo;. </p> <p> W celu przeciwdziałania takiemu zachowianiu możemy użyć: </p> </section> <section id="slide-org4a6b3ce"> <h3 id="org4a6b3ce"><span class="section-number-3">11.1.</span> Mnozenia</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    console.log(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0.1</span> + <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0.31</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>0.41000000000000003</span>
+    console.log((<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0.1</span> * <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>100</span> + <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0.31</span> * <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>100</span>) / <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>100</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>0.41</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org066a5bb"> <h3 id="org066a5bb"><span class="section-number-3">11.2.</span> Metoda obiektu number</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    console.log(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0.17</span> + <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0.24</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>0.41000000000000003</span>
+    console.log((<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0.17</span> + <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0.24</span>).toFixed(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>2</span>)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>0.41</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-orgfa98dd8"> <h2 id="orgfa98dd8"><span class="section-number-2">12.</span> string</h2> <div class="outline-text-2" id="text-12"> </div> </section> <section id="slide-orgf9ade95"> <h3 id="orgf9ade95"><span class="section-number-3">12.1.</span> dodawanie</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>message</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;Mango &quot;</span> + <span style=&quot;color: #9ece6a;&quot;>&quot;is&quot;</span> + <span style=&quot;color: #9ece6a;&quot;>&quot; happy&quot;</span>;
+    console.log(message); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Mango is happy</span>
+
+    console.log(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>1</span> + <span style=&quot;color: #9ece6a;&quot;>&quot;2&quot;</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;12&quot;</span>
+    console.log(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>1</span> + <span style=&quot;color: #9ece6a;&quot;>&quot;2&quot;</span> + <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>4</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;124&quot;</span>
+    console.log(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>1</span> + <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>2</span> + <span style=&quot;color: #9ece6a;&quot;>&quot;4&quot;</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;34&quot;</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org95ff62d"> <h3 id="org95ff62d"><span class="section-number-3">12.2.</span> wiersze szablonowe</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>U&#380;ywaj&#261;c zmiennych nale&#380;y skomponowa&#263; wiersz z podstawionymi warto&#347;ciami</span>
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>guestName</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;Mango&quot;</span>;
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>roomNumber</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>207</span>;
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>greeting</span> =
+      <span style=&quot;color: #9ece6a;&quot;>&quot;Welcome &quot;</span> + guestName + <span style=&quot;color: #9ece6a;&quot;>&quot;, your room number is &quot;</span> + roomNumber + <span style=&quot;color: #9ece6a;&quot;>&quot;!&quot;</span>;
+    console.log(greeting); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;Welcome Mango, your room number is 207!&quot;</span>
+
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>guestName2</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;Mango&quot;</span>;
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>roomNumber2</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>207</span>;
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>greeting2</span> = <span style=&quot;color: #9ece6a;&quot;>`Welcome ${guestName2}, your room number is ${roomNumber2}!`</span>;
+    console.log(greeting2); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;Welcome Mango, your room number is 207!&quot;</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org30b2dab"> <h3 id="org30b2dab"><span class="section-number-3">12.3.</span> prownywanie stringow</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;saMsUng&quot;</span> === <span style=&quot;color: #9ece6a;&quot;>&quot;samsung&quot;</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+    console.log(<span style=&quot;color: #9ece6a;&quot;>&quot;saMsUng&quot;</span> === <span style=&quot;color: #9ece6a;&quot;>&quot;SAMSUNG&quot;</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+ 
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>BRAND_NAME</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;SAMSUNG&quot;</span>;
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>userInput</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;saMsUng&quot;</span>;
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>normalizedToUpperCaseInput</span> = userInput.toUpperCase();
+    
+    console.log(userInput); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&#39;saMsUng&#39;</span>
+    console.log(userInput === BRAND_NAME); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+    console.log(normalizedToUpperCaseInput); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&#39;SAMSUNG&#39;</span>
+    console.log(normalizedToUpperCaseInput === BRAND_NAME); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+ 
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org5a09d81"> <h3 id="org5a09d81"><span class="section-number-3">12.4.</span> replace</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>jsFileName</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;script.js&quot;</span>;
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>minifiedJsFileName</span> = jsFileName.replace(<span style=&quot;color: #9ece6a;&quot;>&quot;.js&quot;</span>, <span style=&quot;color: #9ece6a;&quot;>&quot;.min.js&quot;</span>);
+    console.log(minifiedJsFileName); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;script.min.js&quot;</span>
+ 
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>cssFileNames</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;styles.css, about.css, portfolio.css&quot;</span>;
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>minifiedCssFileNames</span> = cssFileNames.replaceAll(<span style=&quot;color: #9ece6a;&quot;>&quot;.css&quot;</span>, <span style=&quot;color: #9ece6a;&quot;>&quot;.min.css&quot;</span>);
+    console.log(minifiedCssFileNames); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;styles.min.css, about.min.css, portfolio.min.css&quot;</span>
+ 
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-orgd7d3094"> <h3 id="orgd7d3094"><span class="section-number-3">12.5.</span> slice</h3> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Pobiera fragment stringa od indeksu start do indeksu end</span>
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>dogThought</span> =  <span style=&quot;color: #9ece6a;&quot;>&quot;I&#39;m thinking about dogs&quot;</span>
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>dogs</span> = dogThought.slice(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>19</span>, <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>23</span>);
+
+    console.log(dogThought.slice(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0</span>, <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>18</span>), dogs); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&#39;dogs&#39;</span>
+
+    console.log(dogThought.slice(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0</span>, -<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>5</span>), dogThought.slice(-<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>4</span>)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;I&#39;m thinking about dogs&quot;</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-orgbcb674c"> <h3 id="orgbcb674c"><span class="section-number-3">12.6.</span> substing</h3> <p> Alternatywa dla slice, ale nie obsluguje ujemnych indeksow </p> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Pobiera fragment stringa od indeksu start do indeksu end</span>
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>dogThought</span> =  <span style=&quot;color: #9ece6a;&quot;>&quot;I&#39;m thinking about dogs&quot;</span>
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>dogs</span> = dogThought.substring(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>19</span>, <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>23</span>);
+
+    console.log(dogs); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&#39;dogs&#39;</span>
+
+    console.log(dogThought.substring(<span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0</span>, <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>18</span>), dogs); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&quot;I&#39;m thinking about dogs&quot;</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-org8528f22"> <h2 id="org8528f22"><span class="section-number-2">13.</span> Operatory logiczne</h2> <div class="outline-text-2" id="text-13"> </div> </section> <section id="slide-orgfc1d65b"> <h3 id="orgfc1d65b"><span class="section-number-3">13.1.</span> AND</h3> <p> Operator logiczny AND (&amp;&amp;) jeśli oba argumenty sa prawdziwe zwraca <b>ostatnia</b> prawde, w przeciwnym wypadku zwraca <b>pierwszy</b> fałsz. </p> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+   console.log(<span style=&quot;color: #ff9e64;&quot;>true</span> &amp;&amp; <span style=&quot;color: #ff9e64;&quot;>true</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+   console.log(<span style=&quot;color: #ff9e64;&quot;>true</span> &amp;&amp; <span style=&quot;color: #ff9e64;&quot;>false</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+
+   <span style=&quot;color: #bb9af7;&quot;>let</span> <span style=&quot;color: #c0caf5;&quot;>isOnline</span> = <span style=&quot;color: #ff9e64;&quot;>true</span>;
+   <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>message</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;Yes, we are online&quot;</span>;
+
+   console.log(isOnline &amp;&amp; message); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&#39;Yes, we are online&#39;</span>
+
+   isOnline = <span style=&quot;color: #ff9e64;&quot;>false</span>;
+
+   console.log(isOnline &amp;&amp; message); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+    
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org2e8604e"> <h3 id="org2e8604e"><span class="section-number-3">13.2.</span> OR</h3> <p> Operator logiczny OR (||) jeśli oba argumenty sa prawdziwe zwraca <b>pierwszą</b> prawde, w przeciwnym wypadku zwraca <b>ostatni</b> fałsz. </p> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+   console.log(<span style=&quot;color: #ff9e64;&quot;>true</span> || <span style=&quot;color: #ff9e64;&quot;>true</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+   console.log(<span style=&quot;color: #ff9e64;&quot;>true</span> || <span style=&quot;color: #ff9e64;&quot;>false</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+    
+   <span style=&quot;color: #bb9af7;&quot;>let</span> <span style=&quot;color: #c0caf5;&quot;>isOnline</span> = <span style=&quot;color: #ff9e64;&quot;>true</span>;
+
+   <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>message</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;Loading...&quot;</span>;
+
+   console.log(isOnline || message); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+
+   isOnline = <span style=&quot;color: #ff9e64;&quot;>false</span>;
+    
+   console.log(isOnline || message); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>&#39;Loading...&#39;</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org3f0ba78"> <h3 id="org3f0ba78"><span class="section-number-3">13.3.</span> NO</h3> <p> Operator logiczny NO(negacji) (!) neguje wartosc logiczna argumentu. </p> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+   console.log(!<span style=&quot;color: #ff9e64;&quot;>true</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+   console.log(!<span style=&quot;color: #ff9e64;&quot;>false</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+
+   <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>some_message</span> = <span style=&quot;color: #9ece6a;&quot;>&quot;How are you?&quot;</span>;
+
+   console.log(!some_message); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>false</span>
+
+   <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Podw&#243;jna negacja jest rownoznaczna z przepisaniem typu argumentu na Boolean</span>
+   console.log(!!some_message); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+   console.log(Boolean(some_message)); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-orgb8c09e3"> <h3 id="orgb8c09e3"><span class="section-number-3">13.4.</span> <span class="done NO">NO</span> dla AND</h3> <p> Jak zanegować wartość logiczną AND? </p> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>workingHours</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>7</span>;
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>isMoreThenZero</span> = workingHours &gt; <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0</span>;
+    <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>isLessThenEight</span> = workingHours &lt; <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>8</span>;
+    
+    console.log(<span style=&quot;color: #9ece6a;&quot;>`Do I need to work? ${isMoreThenZero &amp;&amp; isLessThenEight}`</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+    console.log(<span style=&quot;color: #9ece6a;&quot;>`Am I done? ${!(isMoreThenZero &amp;&amp; isLessThenEight)}`</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+    console.log(<span style=&quot;color: #9ece6a;&quot;>`Are you sure? ${!isMoreThenZero || !isLessThenEight}`</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>true</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org0d5b074"> <h3 id="org0d5b074"><span class="section-number-3">13.5.</span> <span class="done NO">NO</span> dla OR</h3> <p> Jak zanegować wartość logiczną OR? </p> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+   <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>workingHours</span> = <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>7</span>;
+   <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>isMoreOrEqualEight</span> = workingHours &gt;= <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>8</span>;
+   <span style=&quot;color: #bb9af7;&quot;>const</span> <span style=&quot;color: #c0caf5;&quot;>isLessThenZero</span> = workingHours &lt; <span style=&quot;color: #ff9e64; font-weight: bold;&quot;>0</span>;
+
+   console.log(<span style=&quot;color: #9ece6a;&quot;>`Am I done? ${isMoreOrEqualEight || isLessThenZero}`</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Am I done? false</span>
+
+   console.log(<span style=&quot;color: #9ece6a;&quot;>`Do I need to work more? ${!(isMoreOrEqualEight || isLessThenZero)}`</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Do I need to work more? true</span>
+
+   console.log(<span style=&quot;color: #9ece6a;&quot;>`Are you sure? ${!isMoreOrEqualEight &amp;&amp; !isLessThenZero}`</span>); <span style=&quot;color: #51587a;&quot;>// </span><span style=&quot;color: #51587a;&quot;>Am I done? false</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> </div> </div> <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script> <script>Reveal.initialize({dependencies:[{src:"https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js",condition:function(){return!!document.querySelector("[data-markdown]")}},{src:"https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js",condition:function(){return!!document.querySelector("[data-markdown]")}},{src:"https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js",async:!0,condition:function(){return!!document.body.classList}},{src:"https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js",async:!0,condition:function(){return!!document.body.classList}}]});</script> </body></html>
