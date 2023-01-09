@@ -1,0 +1,12 @@
+# Editors configurations
+.idea
+.vscode
+
+# output folder
+dist
+.parcel-cache
+
+
+# node packages
+node_modules
+

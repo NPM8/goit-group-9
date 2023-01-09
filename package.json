@@ -1,0 +1,22 @@
+{
+  "name": "group_9",
+  "version": "1.0.0",
+  "description": "** Description     This respository containse code and presentation for group 9",
+  "scripts": {
+    "build": "parcel build **/*.html",
+    "start": "parcel **/*.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NPM8/goit-group-9.git"
+  },
+  "author": "Dawid NPM8 Malysa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NPM8/goit-group-9/issues"
+  },
+  "homepage": "https://github.com/NPM8/goit-group-9#readme",
+  "devDependencies": {
+    "parcel": "^2.8.2"
+  }
+}
