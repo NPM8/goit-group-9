@@ -1,0 +1,312 @@
+#+title: Rozgałęzienia
+#+author: Dawid NPM8 Małysa
+#+options: timestamp:nil
+
+** Rozgałęzienia (if...else if...else)
+    *Rozgałęzienia* - to instrukcje, które pozwalają na wykonanie różnych czynności zależnie od warunku
+ 
+    Na przykład: 
+    - ~jeśli~ jesteś pełnoletni, to możesz kupić alkohol, ~w przeciwnym wypadku~ nie możesz
+    - ~jeśli~ jesteś pełnoletni, to możesz wziać ślubu,
+      ~w przeciwnym wypadku~ ~jeśli~ masz pozwolenia rodziców i masz wiecej niz 15 lat, to też możesz,
+      ~w przeciwnym wypadku~ nie możesz.
+ 
+*** Block if
+    #+begin_src js
+      const NAME = 'Dawid';
+ 
+      const whoAmI = 'Dawid';
+ 
+      if (NAME === whoAmI) {
+        console.log('I am Dawid');
+      }
+ 
+      if (NAME === whoAmI)
+        console.log('I am Dawid');
+      
+    #+end_src
+ 
+    #+results:
+    : I am Dawid
+    : I am Dawid
+    : undefined
+     
+  
+*** Block if...else
+    #+begin_src js
+      const NAME = 'Dawid';
+
+      const whoAmI = 'Dawid';
+
+      if (NAME === whoAmI) {
+        console.log('I am Dawid');
+      } else {
+        console.log('I am not Dawid');
+      }
+
+      /* if (NAME === whoAmI)
+        console.log('I am Dawid');
+      else
+        console.log('I am not Dawid'); */
+
+    #+end_src
+ 
+    #+results:
+    : I am Dawid
+    : undefined
+     
+
+*** Block if...else if...else
+    #+begin_src js
+      const NAME = 'Dawid';
+      const NAME_TWO = 'Karolina';
+ 
+      const whoAmI = 'Dawid';
+ 
+      if (NAME === whoAmI) {
+        console.log('I am Dawid');
+      } else if (whoAmI === NAME_TWO) {
+        console.log('I am Karolina');
+      } else {
+        console.log('I am not Dawid, nor Karolina');
+      }
+ 
+      /* if (NAME === whoAmI)
+        console.log('I am Dawid');
+      else if (NAME === 'Dawid')
+        console.log('I am Karolina');
+      else
+        console.log('I am not Dawid, nor Karolina'); */
+
+    #+end_src
+ 
+    #+results:
+    : I am Dawid
+    : undefined
+     
+*** Inline if (ternary operator)
+    #+begin_src js
+      const NAME = 'Dawid';
+      const NAME_TWO = 'Karolina';
+ 
+      const whoAmI = 'Dawid';
+ 
+      console.log(NAME === whoAmI ? "I'm Dawid" : "I'm not Dawid"); 
+
+    #+end_src
+
+    #+results:
+    : I'm Dawid
+    : undefined
+     
+** switch case
+    *switch case* - to instrukcja, która pozwala na wykonanie różnych czynności zależnie od warunku
+    która jest podana jako argument dla ~case~.
+ 
+    #+REVEAL: split
+
+    #+begin_src js 
+      const NAME = 'Dawid';
+      const NAME_TWO = 'Karolina';
+
+      const whoAmI = 'Dawid';
+
+      switch (whoAmI) {
+        case NAME:
+          console.log('I am Dawid');
+          break;
+        case NAME_TWO:
+          console.log('I am Karolina');
+          break;
+        default:
+          console.log('I am not Dawid, nor Karolina');
+      }
+
+    #+end_src
+
+    #+results:
+    : I am Dawid
+    : undefined
+     
+** Variable scope
+    *variable scope* - to zasięg zmiennych, czyli miejsce, w którym możemy użyć danej zmiennej.
+    Przy czym zmienna może byc dostępna tylko z wyższego poziomu do niższego poziomu.
+    
+    Najczestszą granicą tych zasiegów są ~{}~.
+ 
+    #+REVEAL: split
+
+    #+begin_src js
+      const NAME = 'Dawid';
+
+      if (true) {
+        const oldName = 'Dawid';
+        const NAME = 'Karolina';
+   
+        console.log(NAME, oldName); // Karolina Dawid
+      }
+      
+      console.log(NAME); // Dawid
+
+      // console.log(oldName); // ReferenceError: oldName is not defined
+
+    #+end_src
+
+    #+RESULTS:
+    : Karolina Dawid
+    : Dawid
+    : undefined
+
+** Cykle/Pętle
+    - *Cykl* - to instrukcja, która pozwala na wykonanie danego kodu wielokrotnie.
+    - *Iteracja* - to wykonanie danego kodu w ramach danego cyklu.
+    - *Warunek* - to warunek, który musi być spełniony, żeby dany cykl został wykonany.
+    - *Licznik* - to zmienna, która jest odpowiedzialna za przechowywanie aktualnej iteracji.
+ 
+*** while
+    #+begin_src js
+      let i = 0;
+
+      while (i < 10) {
+        console.log(i);
+        i++;
+      }
+
+    #+end_src
+
+    #+results:
+    #+begin_example
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    undefined
+    #+end_example
+     
+*** do...while
+    #+begin_src js
+      let i = 0;
+
+      do {
+        console.log(i);
+        i++;
+      } while (i < 10);
+
+    #+end_src
+
+    #+results:
+    #+begin_example
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    undefined
+    #+end_example
+     
+*** for loop
+    #+begin_src js
+      for (let i = 0, a = true; i < 10; i++) {
+        const a = true;
+        console.log(i);
+      }
+
+    #+end_src
+
+    #+results:
+    #+begin_example
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    undefined
+    #+end_example
+** Ciekawostki
+*** Jak za pomoca petli sprawdzic ilość słów w zdaniu?
+    #+begin_src js
+      const TEXT = "O to jestem. ale mnie nie ma " // Tu definiujemy text jaki chcemy sprawdzać.
+      // Tu definiujemy co okresla koniec "sekfencji" którą chcemy liczyć,
+      // W naszym wypadku każde słowo kończy się spacją.
+      const DELIMITER = " ";
+
+      // Czyścimy wszystkie nie potrzebne znaki z słowa
+      let tempText = TEXT.trim();
+      let lastIndex = 0;
+      let numberOfWords = 0;
+      
+      while (tempText.length && lastIndex !== -1) {
+        // Doliczamy kolejne słowo
+        numberOfWords++;
+        lastIndex = tempText.indexOf(DELIMITER);
+
+        // skracamy operacyjny tekst o 1 słowo + spacje zeby petla sie skonczyla
+        tempText = tempText.slice(lastIndex + 1);
+      }
+
+      console.log(`Numer of words ${numberOfWords}`);
+
+    #+end_src
+
+    #+results:
+    : 7
+    : undefined
+
+    #+REVEAL: split
+
+    #+begin_src js
+      const TEXT = "O to jestem. ale mnie nie ma " // Tu definiujemy text jaki chcemy sprawdzać.
+      // Tu definiujemy co okresla koniec "sekfencji" którą chcemy liczyć,
+      // W naszym wypadku każde słowo kończy się spacją.
+      const DELIMITER = " ";
+
+      if (!TEXT.trim().length) console.log(0);
+
+      for (
+        let tempText = TEXT.trim(), lastIndex = 0, count = 0;
+        tempText.length;
+        count+=1, lastIndex = tempText.indexOf(DELIMITER), tempText = tempText.slice(lastIndex + 1)
+      ) {
+        if (lastIndex === -1) {
+          console.log(count);
+          break;
+        }
+      }
+    #+end_src
+
+    #+RESULTS:
+    : 7
+    : undefined
+
+    #+REVEAL: split
+
+    #+begin_src js
+      const TEXT = "O to jestem. ale mnie nie ma " // Tu definiujemy text jaki chcemy sprawdzać.
+      // Tu definiujemy co okresla koniec "sekfencji" którą chcemy liczyć,
+      // W naszym wypadku każde słowo kończy się spacją.
+      const DELIMITER = " ";
+
+      // Przy użyciu wbudowanych narzedzi
+      console.log(TEXT.trim().split(DELIMITER).length)
+
+    #+end_src
+
+    #+RESULTS:
+    : 7
+    : undefined

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Rozgałęzienia</title>
+<meta name="author" content="Dawid NPM8 Małysa"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Rozgałęzienia</h1><p class="subtitle"></p>
+<h2 class="author">Dawid NPM8 Małysa</h2>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-org154dbe2">1. Rozgałęzienia (if&#x2026;else if&#x2026;else)</a>
+<ul>
+<li><a href="#/slide-org93a01a7">1.1. Block if</a></li>
+<li><a href="#/slide-org3bd87cd">1.2. Block if&#x2026;else</a></li>
+<li><a href="#/slide-orgd45df96">1.3. Block if&#x2026;else if&#x2026;else</a></li>
+<li><a href="#/slide-org7a9bcb6">1.4. Inline if (ternary operator)</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org96f0f28">2. switch case</a></li>
+<li><a href="#/slide-orgf0d307c">3. Variable scope</a></li>
+<li><a href="#/slide-orgca39bcd">4. Cykle/Pętle</a>
+<ul>
+<li><a href="#/slide-org2dbdf58">4.1. while</a></li>
+<li><a href="#/slide-orgbe82441">4.2. do&#x2026;while</a></li>
+<li><a href="#/slide-orgd60bf11">4.3. for loop</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org235cb13">5. Ciekawostki</a>
+<ul>
+<li><a href="#/slide-orged08610">5.1. Jak za pomoca petli sprawdzic ilość słów w zdaniu?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org154dbe2">
+<h2 id="org154dbe2"><span class="section-number-2">1.</span> Rozgałęzienia (if&#x2026;else if&#x2026;else)</h2>
+<p>
+<b>Rozgałęzienia</b> - to instrukcje, które pozwalają na wykonanie różnych czynności zależnie od warunku
+</p>
+
+<p>
+Na przykład: 
+</p>
+<ul>
+<li><code>jeśli</code> jesteś pełnoletni, to możesz kupić alkohol, <code>w przeciwnym wypadku</code> nie możesz</li>
+<li><code>jeśli</code> jesteś pełnoletni, to możesz wziać ślubu,
+<code>w przeciwnym wypadku</code> <code>jeśli</code> masz pozwolenia rodziców i masz wiecej niz 15 lat, to też możesz,
+<code>w przeciwnym wypadku</code> nie możesz.</li>
+
+</ul>
+
+</section>
+<section id="slide-org93a01a7">
+<h3 id="org93a01a7"><span class="section-number-3">1.1.</span> Block if</h3>
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">NAME</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+ 
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">whoAmI</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+ 
+      <span style="color: #bb9af7;">if</span> (NAME === whoAmI) {
+        console.log(<span style="color: #9ece6a;">&#39;I am Dawid&#39;</span>);
+      }
+ 
+      <span style="color: #bb9af7;">if</span> (NAME === whoAmI)
+        console.log(<span style="color: #9ece6a;">&#39;I am Dawid&#39;</span>);
+      
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+
+
+</section>
+<section id="slide-org3bd87cd">
+<h3 id="org3bd87cd"><span class="section-number-3">1.2.</span> Block if&#x2026;else</h3>
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">NAME</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">whoAmI</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+
+      <span style="color: #bb9af7;">if</span> (NAME === whoAmI) {
+        console.log(<span style="color: #9ece6a;">&#39;I am Dawid&#39;</span>);
+      } <span style="color: #bb9af7;">else</span> {
+        console.log(<span style="color: #9ece6a;">&#39;I am not Dawid&#39;</span>);
+      }
+
+      <span style="color: #51587a;">/* </span><span style="color: #51587a;">if (NAME === whoAmI)</span>
+<span style="color: #51587a;">        console.log(&#39;I am Dawid&#39;);</span>
+<span style="color: #51587a;">      else</span>
+<span style="color: #51587a;">        console.log(&#39;I am not Dawid&#39;);</span><span style="color: #51587a;"> */</span>
+
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+
+
+</section>
+<section id="slide-orgd45df96">
+<h3 id="orgd45df96"><span class="section-number-3">1.3.</span> Block if&#x2026;else if&#x2026;else</h3>
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">NAME</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">NAME_TWO</span> = <span style="color: #9ece6a;">&#39;Karolina&#39;</span>;
+ 
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">whoAmI</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+ 
+      <span style="color: #bb9af7;">if</span> (NAME === whoAmI) {
+        console.log(<span style="color: #9ece6a;">&#39;I am Dawid&#39;</span>);
+      } <span style="color: #bb9af7;">else</span> <span style="color: #bb9af7;">if</span> (whoAmI === NAME_TWO) {
+        console.log(<span style="color: #9ece6a;">&#39;I am Karolina&#39;</span>);
+      } <span style="color: #bb9af7;">else</span> {
+        console.log(<span style="color: #9ece6a;">&#39;I am not Dawid, nor Karolina&#39;</span>);
+      }
+ 
+      <span style="color: #51587a;">/* </span><span style="color: #51587a;">if (NAME === whoAmI)</span>
+<span style="color: #51587a;">        console.log(&#39;I am Dawid&#39;);</span>
+<span style="color: #51587a;">      else if (NAME === &#39;Dawid&#39;)</span>
+<span style="color: #51587a;">        console.log(&#39;I am Karolina&#39;);</span>
+<span style="color: #51587a;">      else</span>
+<span style="color: #51587a;">        console.log(&#39;I am not Dawid, nor Karolina&#39;);</span><span style="color: #51587a;"> */</span>
+
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+
+</section>
+<section id="slide-org7a9bcb6">
+<h3 id="org7a9bcb6"><span class="section-number-3">1.4.</span> Inline if (ternary operator)</h3>
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">NAME</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">NAME_TWO</span> = <span style="color: #9ece6a;">&#39;Karolina&#39;</span>;
+ 
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">whoAmI</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+ 
+      console.log(NAME === whoAmI ? <span style="color: #9ece6a;">"I&#39;m Dawid"</span> : <span style="color: #9ece6a;">"I&#39;m not Dawid"</span>); 
+
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+
+</section>
+</section>
+<section>
+<section id="slide-org96f0f28">
+<h2 id="org96f0f28"><span class="section-number-2">2.</span> switch case</h2>
+<p>
+<b>switch case</b> - to instrukcja, która pozwala na wykonanie różnych czynności zależnie od warunku
+która jest podana jako argument dla <code>case</code>.
+</p>
+
+</section>
+<section id="slide-org96f0f28-split">
+
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">NAME</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">NAME_TWO</span> = <span style="color: #9ece6a;">&#39;Karolina&#39;</span>;
+
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">whoAmI</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+
+      <span style="color: #bb9af7;">switch</span> (whoAmI) {
+        <span style="color: #bb9af7;">case</span> NAME:
+          console.log(<span style="color: #9ece6a;">&#39;I am Dawid&#39;</span>);
+          <span style="color: #bb9af7;">break</span>;
+        <span style="color: #bb9af7;">case</span> NAME_TWO:
+          console.log(<span style="color: #9ece6a;">&#39;I am Karolina&#39;</span>);
+          <span style="color: #bb9af7;">break</span>;
+        <span style="color: #bb9af7;">default</span>:
+          console.log(<span style="color: #9ece6a;">&#39;I am not Dawid, nor Karolina&#39;</span>);
+      }
+
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf0d307c">
+<h2 id="orgf0d307c"><span class="section-number-2">3.</span> Variable scope</h2>
+<p>
+<b>variable scope</b> - to zasięg zmiennych, czyli miejsce, w którym możemy użyć danej zmiennej.
+Przy czym zmienna może byc dostępna tylko z wyższego poziomu do niższego poziomu.
+</p>
+
+<p>
+Najczestszą granicą tych zasiegów są <code>{}</code>.
+</p>
+
+</section>
+<section id="slide-orgf0d307c-split">
+
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">NAME</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+
+      <span style="color: #bb9af7;">if</span> (<span style="color: #ff9e64;">true</span>) {
+        <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">oldName</span> = <span style="color: #9ece6a;">&#39;Dawid&#39;</span>;
+        <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">NAME</span> = <span style="color: #9ece6a;">&#39;Karolina&#39;</span>;
+   
+        console.log(NAME, oldName); <span style="color: #51587a;">// </span><span style="color: #51587a;">Karolina Dawid</span>
+      }
+      
+      console.log(NAME); <span style="color: #51587a;">// </span><span style="color: #51587a;">Dawid</span>
+
+      <span style="color: #51587a;">// </span><span style="color: #51587a;">console.log(oldName); // ReferenceError: oldName is not defined</span>
+
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+
+</section>
+</section>
+<section>
+<section id="slide-orgca39bcd">
+<h2 id="orgca39bcd"><span class="section-number-2">4.</span> Cykle/Pętle</h2>
+<ul>
+<li><b>Cykl</b> - to instrukcja, która pozwala na wykonanie danego kodu wielokrotnie.</li>
+<li><b>Iteracja</b> - to wykonanie danego kodu w ramach danego cyklu.</li>
+<li><b>Warunek</b> - to warunek, który musi być spełniony, żeby dany cykl został wykonany.</li>
+<li><b>Licznik</b> - to zmienna, która jest odpowiedzialna za przechowywanie aktualnej iteracji.</li>
+
+</ul>
+
+</section>
+<section id="slide-org2dbdf58">
+<h3 id="org2dbdf58"><span class="section-number-3">4.1.</span> while</h3>
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">let</span> <span style="color: #c0caf5;">i</span> = <span style="color: #ff9e64; font-weight: bold;">0</span>;
+
+      <span style="color: #bb9af7;">while</span> (i &lt; <span style="color: #ff9e64; font-weight: bold;">10</span>) {
+        console.log(i);
+        i++;
+      }
+
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+
+</section>
+<section id="slide-orgbe82441">
+<h3 id="orgbe82441"><span class="section-number-3">4.2.</span> do&#x2026;while</h3>
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">let</span> <span style="color: #c0caf5;">i</span> = <span style="color: #ff9e64; font-weight: bold;">0</span>;
+
+      <span style="color: #bb9af7;">do</span> {
+        console.log(i);
+        i++;
+      } <span style="color: #bb9af7;">while</span> (i &lt; <span style="color: #ff9e64; font-weight: bold;">10</span>);
+
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+
+</section>
+<section id="slide-orgd60bf11">
+<h3 id="orgd60bf11"><span class="section-number-3">4.3.</span> for loop</h3>
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">for</span> (<span style="color: #bb9af7;">let</span> <span style="color: #c0caf5;">i</span> = <span style="color: #ff9e64; font-weight: bold;">0</span>, <span style="color: #c0caf5;">a</span> = <span style="color: #ff9e64;">true</span>; i &lt; <span style="color: #ff9e64; font-weight: bold;">10</span>; i++) {
+        <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">a</span> = <span style="color: #ff9e64;">true</span>;
+        console.log(i);
+      }
+
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+</section>
+</section>
+<section>
+<section id="slide-org235cb13">
+<h2 id="org235cb13"><span class="section-number-2">5.</span> Ciekawostki</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+<section id="slide-orged08610">
+<h3 id="orged08610"><span class="section-number-3">5.1.</span> Jak za pomoca petli sprawdzic ilość słów w zdaniu?</h3>
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">TEXT</span> = <span style="color: #9ece6a;">"O to jestem. ale mnie nie ma "</span> <span style="color: #51587a;">// </span><span style="color: #51587a;">Tu definiujemy text jaki chcemy sprawdza&#263;.</span>
+      <span style="color: #51587a;">// </span><span style="color: #51587a;">Tu definiujemy co okresla koniec "sekfencji" kt&#243;r&#261; chcemy liczy&#263;,</span>
+      <span style="color: #51587a;">// </span><span style="color: #51587a;">W naszym wypadku ka&#380;de s&#322;owo ko&#324;czy si&#281; spacj&#261;.</span>
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">DELIMITER</span> = <span style="color: #9ece6a;">" "</span>;
+
+      <span style="color: #51587a;">// </span><span style="color: #51587a;">Czy&#347;cimy wszystkie nie potrzebne znaki z s&#322;owa</span>
+      <span style="color: #bb9af7;">let</span> <span style="color: #c0caf5;">tempText</span> = TEXT.trim();
+      <span style="color: #bb9af7;">let</span> <span style="color: #c0caf5;">lastIndex</span> = <span style="color: #ff9e64; font-weight: bold;">0</span>;
+      <span style="color: #bb9af7;">let</span> <span style="color: #c0caf5;">numberOfWords</span> = <span style="color: #ff9e64; font-weight: bold;">0</span>;
+      
+      <span style="color: #bb9af7;">while</span> (tempText.length &amp;&amp; lastIndex !== -<span style="color: #ff9e64; font-weight: bold;">1</span>) {
+        <span style="color: #51587a;">// </span><span style="color: #51587a;">Doliczamy kolejne s&#322;owo</span>
+        numberOfWords++;
+        lastIndex = tempText.indexOf(DELIMITER);
+
+        <span style="color: #51587a;">// </span><span style="color: #51587a;">skracamy operacyjny tekst o 1 s&#322;owo + spacje zeby petla sie skonczyla</span>
+        tempText = tempText.slice(lastIndex + <span style="color: #ff9e64; font-weight: bold;">1</span>);
+      }
+
+      console.log(<span style="color: #9ece6a;">`Numer of words ${numberOfWords}`</span>);
+
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+
+</section>
+<section id="slide-orged08610-split">
+
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">TEXT</span> = <span style="color: #9ece6a;">"O to jestem. ale mnie nie ma "</span> <span style="color: #51587a;">// </span><span style="color: #51587a;">Tu definiujemy text jaki chcemy sprawdza&#263;.</span>
+      <span style="color: #51587a;">// </span><span style="color: #51587a;">Tu definiujemy co okresla koniec "sekfencji" kt&#243;r&#261; chcemy liczy&#263;,</span>
+      <span style="color: #51587a;">// </span><span style="color: #51587a;">W naszym wypadku ka&#380;de s&#322;owo ko&#324;czy si&#281; spacj&#261;.</span>
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">DELIMITER</span> = <span style="color: #9ece6a;">" "</span>;
+
+      <span style="color: #bb9af7;">if</span> (!TEXT.trim().length) console.log(<span style="color: #ff9e64; font-weight: bold;">0</span>);
+
+      <span style="color: #bb9af7;">for</span> (
+        <span style="color: #bb9af7;">let</span> <span style="color: #c0caf5;">tempText</span> = TEXT.trim(), <span style="color: #c0caf5;">lastIndex</span> = <span style="color: #ff9e64; font-weight: bold;">0</span>, <span style="color: #c0caf5;">count</span> = <span style="color: #ff9e64; font-weight: bold;">0</span>;
+        tempText.length;
+        count+=<span style="color: #ff9e64; font-weight: bold;">1</span>, lastIndex = tempText.indexOf(DELIMITER), tempText = tempText.slice(lastIndex + <span style="color: #ff9e64; font-weight: bold;">1</span>)
+      ) {
+        <span style="color: #bb9af7;">if</span> (lastIndex === -<span style="color: #ff9e64; font-weight: bold;">1</span>) {
+          console.log(count);
+          <span style="color: #bb9af7;">break</span>;
+        }
+      }
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+
+</section>
+<section id="slide-orged08610-split">
+
+<iframe style="background-color:white;" height="500px" width= "100%" srcdoc='<html><body><pre><code class="klipse" >
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">TEXT</span> = <span style="color: #9ece6a;">"O to jestem. ale mnie nie ma "</span> <span style="color: #51587a;">// </span><span style="color: #51587a;">Tu definiujemy text jaki chcemy sprawdza&#263;.</span>
+      <span style="color: #51587a;">// </span><span style="color: #51587a;">Tu definiujemy co okresla koniec "sekfencji" kt&#243;r&#261; chcemy liczy&#263;,</span>
+      <span style="color: #51587a;">// </span><span style="color: #51587a;">W naszym wypadku ka&#380;de s&#322;owo ko&#324;czy si&#281; spacj&#261;.</span>
+      <span style="color: #bb9af7;">const</span> <span style="color: #c0caf5;">DELIMITER</span> = <span style="color: #9ece6a;">" "</span>;
+
+      <span style="color: #51587a;">// </span><span style="color: #51587a;">Przy u&#380;yciu wbudowanych narzedzi</span>
+      console.log(TEXT.trim().split(DELIMITER).length)
+
+
+</code></pre>
+<link rel= "stylesheet" type= "text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: ".klipse" };
+</script>
+<script src= "https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script></body></html>
+'>
+</iframe>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
