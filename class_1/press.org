@@ -1,0 +1,514 @@
+#+TITLE: Zmienne i typy w JS
+#+DESCRIPTION: Zajecia sa wprowadzeniem do jezyka programownia JavaScript w przegladarce
+#+AUTHOR: Dawid NPM8 Małysa
+#+OPTIONS: timestamp:nil toc:nil
+
+** Zawartość
+    - [[Zawartość][Zawartość]]
+    - [[Console.log][Console.log]]
+    - [[Właściowości][Właściowości]]
+    - [[Metody][Metody]]
+    - [[Zmienna][Zmienna]]
+    - [[Undefined][Undefined]]
+    - [[Typeof][Typeof]]
+ 
+    #+REVEAL: split
+ 
+    - [[operatory][operatory]]
+      - [[Atytmetyczne:][Atytmetyczne:]]
+      - [[porownania:][porownania:]]
+    - [[Konwersja String -> Number][Konwersja String -> Number]]
+      - [[Za pomoca Number()][Za pomoca Number()]]
+      - [[parseInt][parseInt]]
+      - [[parseFloat][parseFloat]]
+    - [[isNaN?][isNaN?]]
+    - [[Jak naprawic float?][Jak naprawic float?]]
+      - [[Mnozenia][Mnozenia]]
+      - [[Metoda obiektu number][Metoda obiektu number]]
+ 
+    #+REVEAL: split
+
+    - [[string][string]]
+      - [[dodawanie][dodawanie]]
+      - [[wiersze szablonowe][wiersze szablonowe]]
+      - [[prownywanie stringow][prownywanie stringow]]
+      - [[replace][replace]]
+      - [[slice][slice]]
+      - [[substing][substing]]
+    - [[Operatory logiczne][Operatory logiczne]]
+      - [[AND][AND]]
+      - [[OR][OR]]
+      - [[NO][NO]]
+      - [[dla AND][dla AND]]
+      - [[dla OR][dla OR]]
+ 
+** Console.log
+#+begin_src js
+console.log("JavaScript is awesome".length)
+#+end_src
+
+#+results:
+: 21
+: undefined
+
+** Właściowości
+#+begin_src js
+console.log("JavaScript is awesome".length)
+#+end_src
+
+#+results:
+** Metody
+#+begin_src js
+const username = "Mango";
+// Username is Mango
+console.log("Username is", username);
+#+end_src
+
+#+results:
+: Username is Mango
+: undefined
+
+** Zmienna
+#+begin_src js
+let a = 10 * 2;
+const b = 20;
+a = 40;
+console.log(a, b)
+#+end_src
+
+#+results:
+
+** Undefined
+#+begin_src js
+let a;
+console.log(a)
+#+end_src
+
+#+results:
+: undefined
+: undefined
+
+** Typeof
+    #+begin_src js
+let username;
+console.log(typeof username); // "undefined"
+
+let inputValue = null;
+console.log(typeof inputValue); // "object"
+
+const quantity = .4;
+console.log(typeof quantity); // "number"
+
+const message = "JavaScript is awesome!";
+console.log(typeof message); // "string"
+
+const isSidebarOpen = false;
+console.log(typeof isSidebarOpen);
+    #+end_src
+
+    #+results:
+    : undefined
+    : object
+    : number
+    : string
+    : boolean
+    : undefined
+
+** operatory
+*** Atytmetyczne:
+ #+begin_src js
+ const x = 10;
+ const y = 5;
+ 
+ // Dodawanie
+ console.log(x + y); // 15
+ 
+ // Odejmowanie
+ console.log(x - y); // 5
+ 
+ // Mnożenie
+ console.log(x * y); // 50
+ 
+ // Dzielenie
+ console.log(x / y); // 2
+ 
+ // Reszta po dzieleniu
+ console.log(x % y); // 0
+ 
+ // Mnożenie z zamianą
+ let value = 5;
+ 
+ // Analogiczne do value = value + 10;
+ // value = value + 10;
+ value += 10;
+ console.log(value);
+ #+end_src
+ 
+ #+results:
+ : 15
+ : 5
+ : 50
+ : 2
+ : 0
+ : 5
+ : undefined
+ 
+*** porownania:
+#+begin_src js
+const x = 5;
+const y = "100";
+const z = 5;
+
+console.log("x > y:", x > y); // false
+console.log("x < y:", x < y); // true
+console.log("x < z:", x < z); // false
+console.log("x <= z:", x <= z); // true
+console.log("x <= y:", x <= y); // true
+console.log("x === y:", x === y); // false
+console.log("x === z:", x === z); // true
+console.log("x !== y:", x !== y); // true
+console.log("x !== z:", x !== z);
+
+#+end_src
+
+#+results:
+#+begin_example
+x > y: false
+x < y: true
+x < z: false
+x <= z: true
+x <= y: true
+x === y: false
+x === z: true
+x !== y: true
+x !== z: false
+undefined
+#+end_example
+
+** Konwersja String -> Number
+   W JS mozna zamienic string na liczbe za pomoca Number(), metody parseInt() lub parseFloat() ktore dobieramy zaleznie od potrzeb
+
+*** Za pomoca Number()
+    #+begin_src js
+    const valueA = "5";
+    console.log(Number(valueA)); // 5
+    console.log(typeof Number(valueA)); // "number"
+
+    const valueB = "random string";
+    console.log(Number(valueB)); // NaN
+    console.log(typeof Number(valueB));
+    #+end_src
+
+    #+results:
+    : 5
+    : number
+    : NaN
+    : number
+    : undefined
+
+*** parseInt
+    #+begin_src js
+    console.log(Number.parseInt("03ap", 16)); // 5
+    console.log(Number.parseInt("01qwe74")); // 12
+    console.log(Number.parseInt("12.46qwe79")); // 12
+    console.log(Number.parseInt("qweqwe12")); // NaN
+
+    #+end_src
+
+    #+results:
+    : 58
+    : 1
+    : 12
+    : NaN
+    : undefined
+
+*** parseFloat
+    #+begin_src js
+    console.log(Number.parseFloat("5px")); // 5
+    console.log(Number.parseFloat("12qwe74")); // 12
+    console.log(Number.parseFloat("12.46qwe79")); // 12.46
+    console.log(Number.parseFloat(".1qweqwe")); // NaN
+ 
+    #+end_src
+ 
+    #+results:
+    : 5
+    : 12
+    : 12.46
+    : 0.1
+    : undefined
+** isNaN?
+   ~Number.isNaN()~ sprawdza czy wartosc *NIE* jest liczba, jesli tak to zwraca true, inaczej zwraca false
+
+   #+begin_src js
+   const validNumber = Number("51"); // 51
+   console.log(Number.isNaN(validNumber)); // false
+
+   const invalidNumber = Number("qweqwe"); // NaN
+   console.log(Number.isNaN(invalidNumber)); // true
+
+   #+end_src
+
+   #+results:
+   : false
+   : true
+   : undefined
+
+** Jak naprawic float?
+   W komputerze nie ma mozliwosci na zapisanie wyniku dowolnego dzielenia ulamka, wiec sa one zapisane w pewnym formie przyblizenia za pomoca specjalnego algorytmu, dlatego tez wyniki ich artmetyki moga odbiegac od tego co my robimy "na kartce".
+
+   W celu przeciwdziałania takiemu zachowianiu możemy użyć:
+*** Mnozenia
+    #+begin_src js
+    console.log(0.1 + 0.31); // 0.41000000000000003
+    console.log((0.1 * 100 + 0.31 * 100) / 100); // 0.41
+
+    #+end_src
+
+    #+results:
+    : 0.41000000000000003
+    : 0.41
+    : undefined
+
+*** Metoda obiektu number
+    #+begin_src js
+    console.log(0.17 + 0.24); // 0.41000000000000003
+    console.log((0.17 + 0.24).toFixed(2)); // 0.41
+
+    #+end_src
+
+    #+results:
+    : 0.41000000000000003
+    : 0.41
+    : undefined
+** string
+*** dodawanie
+    #+begin_src js
+    const message = "Mango " + "is" + " happy";
+    console.log(message); // Mango is happy
+
+    console.log(1 + "2"); // "12"
+    console.log(1 + "2" + 4); // "124"
+    console.log(1 + 2 + "4"); // "34"
+
+    #+end_src
+
+    #+results:
+    : Mango is happy
+    : undefined
+
+*** wiersze szablonowe
+    #+begin_src js
+    // Używając zmiennych należy skomponować wiersz z podstawionymi wartościami
+    const guestName = "Mango";
+    const roomNumber = 207;
+    const greeting =
+      "Welcome " + guestName + ", your room number is " + roomNumber + "!";
+    console.log(greeting); // "Welcome Mango, your room number is 207!"
+
+    const guestName2 = "Mango";
+    const roomNumber2 = 207;
+    const greeting2 = `Welcome ${guestName2}, your room number is ${roomNumber2}!`;
+    console.log(greeting2); // "Welcome Mango, your room number is 207!"
+
+    #+end_src
+
+    #+results:
+    : Welcome Mango, your room number is 207!
+    : Welcome Mango, your room number is 207,20!
+    : undefined
+
+*** prownywanie stringow
+    #+begin_src js
+    console.log("saMsUng" === "samsung"); // false
+    console.log("saMsUng" === "SAMSUNG"); // false
+ 
+    const BRAND_NAME = "SAMSUNG";
+    const userInput = "saMsUng";
+    const normalizedToUpperCaseInput = userInput.toUpperCase();
+    
+    console.log(userInput); // 'saMsUng'
+    console.log(userInput === BRAND_NAME); // false
+    console.log(normalizedToUpperCaseInput); // 'SAMSUNG'
+    console.log(normalizedToUpperCaseInput === BRAND_NAME); // true
+ 
+    #+end_src
+ 
+    #+results:
+    : false
+    : false
+    : saMsUng
+    : false
+    : SAMSUNG
+    : true
+    : undefined
+ 
+*** replace
+    #+begin_src js
+    const jsFileName = "script.js";
+    const minifiedJsFileName = jsFileName.replace(".js", ".min.js");
+    console.log(minifiedJsFileName); // "script.min.js"
+ 
+    const cssFileNames = "styles.css, about.css, portfolio.css";
+    const minifiedCssFileNames = cssFileNames.replaceAll(".css", ".min.css");
+    console.log(minifiedCssFileNames); // "styles.min.css, about.min.css, portfolio.min.css"
+ 
+    #+end_src
+ 
+    #+results:
+    : script.min.js
+    : styles.min.css, about.min.css, portfolio.min.css
+    : undefined
+
+*** slice
+    #+begin_src js
+    // Pobiera fragment stringa od indeksu start do indeksu end
+    const dogThought =  "I'm thinking about dogs"
+    const dogs = dogThought.slice(19, 23);
+
+    console.log(dogThought.slice(0, 18), dogs); // 'dogs'
+
+    console.log(dogThought.slice(0, -5), dogThought.slice(-4)); // "I'm thinking about dogs"
+
+    #+end_src
+
+    #+RESULTS:
+    : I'm thinking about dogs
+    : I'm thinking about dogs
+    : undefined
+
+*** substing
+    Alternatywa dla slice, ale nie obsluguje ujemnych indeksow
+    #+begin_src js
+    // Pobiera fragment stringa od indeksu start do indeksu end
+    const dogThought =  "I'm thinking about dogs"
+    const dogs = dogThought.substring(19, 23);
+
+    console.log(dogs); // 'dogs'
+
+    console.log(dogThought.substring(0, 18), dogs); // "I'm thinking about dogs"
+
+    #+end_src
+
+    #+results:
+    : dogs
+    : I'm thinking about dogs
+    : undefined
+** Operatory logiczne
+*** AND
+   Operator logiczny AND (&&) jeśli oba argumenty sa prawdziwe zwraca *ostatnia* prawde, w przeciwnym wypadku zwraca *pierwszy* fałsz.
+
+   #+begin_src js
+   console.log(true && true); // true
+   console.log(true && false); // false
+
+   let isOnline = true;
+   const message = "Yes, we are online";
+
+   console.log(isOnline && message); // 'Yes, we are online'
+
+   isOnline = false;
+
+   console.log(isOnline && message); // false
+    
+   #+end_src
+
+   #+results:
+   : true
+   : false
+   : Yes, we are online
+   : false
+   : undefined
+
+*** OR
+   Operator logiczny OR (||) jeśli oba argumenty sa prawdziwe zwraca *pierwszą* prawde, w przeciwnym wypadku zwraca *ostatni* fałsz.
+
+   #+begin_src js
+   console.log(true || true); // true
+   console.log(true || false); // true
+    
+   let isOnline = true;
+
+   const message = "Loading...";
+
+   console.log(isOnline || message); // true
+
+   isOnline = false;
+    
+   console.log(isOnline || message); // 'Loading...'
+
+   #+end_src
+
+   #+results:
+   : true
+   : true
+   : true
+   : Loading...
+   : undefined
+
+*** NO
+   Operator logiczny NO(negacji) (!) neguje wartosc logiczna argumentu.
+
+   #+begin_src js
+   console.log(!true); // false
+   console.log(!false); // true
+
+   const some_message = "How are you?";
+
+   console.log(!some_message); // false
+
+   // Podwójna negacja jest rownoznaczna z przepisaniem typu argumentu na Boolean
+   console.log(!!some_message); // true
+   console.log(Boolean(some_message)); // true
+
+   #+end_src
+
+   #+results:
+   : false
+   : true
+   : false
+   : true
+   : true
+   : undefined
+
+*** NO dla AND
+   Jak zanegować wartość logiczną AND?
+   
+   #+begin_src js
+    const workingHours = 7;
+    const isMoreThenZero = workingHours > 0;
+    const isLessThenEight = workingHours < 8;
+    
+    console.log(`Do I need to work? ${isMoreThenZero && isLessThenEight}`); // true
+    console.log(`Am I done? ${!(isMoreThenZero && isLessThenEight)}`); // true
+    console.log(`Are you sure? ${!isMoreThenZero || !isLessThenEight}`); // true
+
+   #+end_src
+
+   #+results: 
+   : Do I need to work? true
+   : Am I done? false
+   : Are you sure? false
+   : undefined
+
+*** NO dla OR
+   Jak zanegować wartość logiczną OR?
+
+   #+begin_src js
+   const workingHours = 7;
+   const isMoreOrEqualEight = workingHours >= 8;
+   const isLessThenZero = workingHours < 0;
+
+   console.log(`Am I done? ${isMoreOrEqualEight || isLessThenZero}`); // Am I done? false
+
+   console.log(`Do I need to work more? ${!(isMoreOrEqualEight || isLessThenZero)}`); // Do I need to work more? true
+
+   console.log(`Are you sure? ${!isMoreOrEqualEight && !isLessThenZero}`); // Am I done? false
+
+   #+end_src
+
+   #+results:
+   : Do I need to work more? true
+   : Am I done? false
+   : Are you sure? false
+   : undefined
