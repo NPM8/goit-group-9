@@ -4,6 +4,7 @@
   "description": "** Description     This respository containse code and presentation for group 9",
   "scripts": {
     "build": "parcel build **/*.html",
+    "prestart": "rimraf dist",
     "start": "parcel **/*.html"
   },
   "repository": {
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/NPM8/goit-group-9#readme",
   "devDependencies": {
-    "parcel": "^2.8.2"
+    "parcel": "^2.8.2",
+    "rimraf": "^3.0.2"
   }
 }
