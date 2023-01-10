@@ -1,0 +1,170 @@
+#+title: Listy i ich metody
+#+author: Dawid NPM8 Małysa
+#+options: timestamp:nil
+
+** Listy (Arrays)
+   W JavaScript, listy, znane również jako tablica, służą do przechowywania wielu wartości w jednej zmiennej.
+   Możemy do nich dodawać nowe elementy, usuwać istniejące, a także odczytywać i modyfikować już istniejące elementy.
+
+   #+REVEAL: split
+
+   #+begin_src javascript
+    const cars = ["Saab", "Volvo", "BMW"];
+
+    console.log(cars[0]); // Saab
+    cars[0] = "Opel"
+    console.log(cars); // Opel, Volvo, BMW
+   #+end_src
+
+   #+REVEAL: split
+
+   #+begin_src javascript
+    const cars = ["Saab", "Volvo", "BMW"];
+    
+    const lastElementIndex = cars.length - 1;
+    console.log(lastElementIndex); // 2
+    console.log(cars[lastElementIndex]); // BMW
+   #+end_src
+
+** Iterowanie po liście
+
+   Iteracja to proces przejścia przez każdy element w danej kolekcji danych, takiej jak lista, i wykonanie określonej operacji na każdym z tych elementów.
+
+   #+REVEAL: split
+
+   #+begin_src javascript
+    const cars = ["Saab", "Volvo", "BMW"];
+
+    for (let i = 0; i < cars.length; i++) {
+        console.log(cars[i]);
+    }
+   #+end_src
+
+   #+REVEAL: split
+
+   #+begin_src javascript
+    const cars = ["Saab", "Volvo", "BMW"];
+
+    for (const car of cars) {
+        console.log(car);
+    }
+   #+end_src
+
+*** Benchmark
+
+   Która z pętli jest szybsza? Czy one w ogóle są szybkie? Dowiedzmy się!
+
+   [[https://jsben.ch/IQxsr][Wyniki]]
+
+
+** Wartości i ich referencje
+   W JavaScript, kiedy przypisujemy jedną zmienną o wartości typu złożonego do drugiej, to przypisujemy referencję do tej zmiennej, a nie jej wartość.
+   Oznacza to, że obie zmienne wskazują na ten sam obiekt w pamięci.
+
+   #+REVEAL: split
+   
+   #+begin_src javascript
+    const cars = ["Saab", "Volvo", "Ferrari"];
+    const cars2 = cars;
+
+    c = cars[0]
+
+    cars2[0] = "Opel";
+
+    cars.push("BMW");
+
+    console.log(cars); // Opel, Volvo, Ferrari, BMW 
+
+    console.log(c); // Saab
+
+   #+end_src
+
+** Metody list
+   W JavaScript, listy mają wiele wbudowanych metod, które pozwalają na łatwe manipulowanie elementami listy.
+
+   #+REVEAL: split
+
+   #+begin_src javascript
+    const cars = ["Saab", "Volvo", "BMW"];
+
+    cars.push("Ferrari"); // Dodaje element na końcu listy
+    console.log(cars); // Saab, Volvo, BMW, Ferrari
+
+    const lastCar = cars.pop(); // Usuwa ostatni element z listy
+    console.log(cars); // Saab, Volvo, BMW
+    console.log(lastCar); // Ferrari
+
+    const doIHaveVolvo = cars.includes("Volvo"); // Sprawdza czy element znajduje się na liście
+    console.log(doIHaveVolvo); // true
+
+    const indexOfVolvo = cars.indexOf("Volvo"); // Zwraca indeks elementu na liście
+    console.log(indexOfVolvo); // 1
+
+    cars.shift(); // Usuwa pierwszy element z listy
+    console.log(cars); // Volvo, BMW
+
+    cars.unshift("Opel"); // Dodaje element na początku listy
+    console.log(cars); // Opel, Volvo, BMW
+
+    cars.splice(1, 0, "Ferrari"); // Dodaje element na indeksie 1
+    console.log(cars); // Opel, Ferrari, Volvo, BMW
+
+    cars.splice(1, 1); // Usuwa element na indeksie 1
+    console.log(cars); // Opel, Volvo, BMW
+
+    cars.reverse(); // Odwraca kolejność elementów w liście
+    console.log(cars); // BMW, Volvo, Opel
+
+    cars.sort(); // Sortuje elementy w liście
+    console.log(cars); // BMW, Opel, Volvo
+
+    const newCars = cars.concat(["Ferrari", "Saab"]); // Łączy dwie listy
+    console.log(newCars); // BMW, Opel, Volvo, Ferrari, Saab
+
+   #+end_src
+
+** Ciekawostki
+   #+REVEAL: split
+
+   #+begin_src javascript
+    const cars = ["Saab", "Volvo", "BMW"];
+
+    cars[3] = "Ferrari"; // Dodaje element na indeksie 3
+    console.log(cars); // Saab, Volvo, BMW, Ferrari
+
+    cars[10] = "Ferrari"; // Dodaje element na indeksie 10
+    console.log(cars); // Saab, Volvo, BMW, Ferrari, undefined, undefined, undefined, undefined, undefined, undefined, Ferrari
+
+    cars[5] = "Ferrari"; // Dodaje element na indeksie 5
+    console.log(cars); // Saab, Volvo, BMW, Ferrari, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+
+    cars[3] = undefined; // Usuwa element na indeksie 3
+    console.log(cars); // Saab, Volvo, BMW, undefined, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+
+    cars[3] = null; // Dodaje element na indeksie 3
+    console.log(cars); // Saab, Volvo, BMW, null, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+
+    cars[3] = 0; // Dodaje element na indeksie 3
+    console.log(cars); // Saab, Volvo, BMW, 0, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+
+    cars[3] = ""; // Dodaje element na indeksie 3
+    console.log(cars); // Saab, Volvo, BMW, "", undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+
+    cars[3] = false; // Dodaje element na indeksie 3
+    console.log(cars); // Saab, Volvo, BMW, false, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+
+   #+end_src
+
+   #+REVEAL: split
+
+   #+begin_src javascript
+    const cars = ["Saab", "Volvo", "BMW"];
+    cars.length = 0; // Usuwa wszystkie elementy z listy
+    
+    console.log(cars); // []
+    
+    cars.length = 5; // Dodaje 5 elementów o wartości undefined do listy
+    
+    console.log(cars); // [undefined, undefined, undefined, undefined, undefined]
+   #+end_src
+
