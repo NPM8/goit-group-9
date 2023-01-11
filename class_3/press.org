@@ -3,8 +3,8 @@
 #+options: timestamp:nil
 
 ** Listy (Arrays)
-   W JavaScript, listy, znane również jako tablica, służą do przechowywania wielu wartości w jednej zmiennej.
-   Możemy do nich dodawać nowe elementy, usuwać istniejące, a także odczytywać i modyfikować już istniejące elementy.
+   W JavaScript, listy, znane również jako tablice, służą do przechowywania wielu wartości w jednej zmiennej.
+   Możemy do nich dodawać nowe elementy, a także usuwać, odczytywać i modyfikować już istniejące elementy.
 
    #+REVEAL: split
 
@@ -84,6 +84,12 @@
 
    #+REVEAL: split
 
+*** push() i pop()
+    - =push()= - dodaje nowy element na końcu listy, 
+    - =pop()= - usuwa ostatni element z listy.
+
+   #+REVEAL: split
+
    #+begin_src javascript
     const cars = ["Saab", "Volvo", "BMW"];
 
@@ -93,65 +99,121 @@
     const lastCar = cars.pop(); // Usuwa ostatni element z listy
     console.log(cars); // Saab, Volvo, BMW
     console.log(lastCar); // Ferrari
+   #+end_src
 
-    const doIHaveVolvo = cars.includes("Volvo"); // Sprawdza czy element znajduje się na liście
-    console.log(doIHaveVolvo); // true
+*** shift() i unshift()
+    - =shift()= - usuwa pierwszy element z listy,
+    - =unshift()= - dodaje nowy element na początku listy.
 
-    const indexOfVolvo = cars.indexOf("Volvo"); // Zwraca indeks elementu na liście
-    console.log(indexOfVolvo); // 1
+   #+REVEAL: split
 
+   #+begin_src javascript
     cars.shift(); // Usuwa pierwszy element z listy
     console.log(cars); // Volvo, BMW
 
     cars.unshift("Opel"); // Dodaje element na początku listy
     console.log(cars); // Opel, Volvo, BMW
+   #+end_src
 
+*** indexOf() i includes()
+    - =indexOf()= - zwraca indeks pierwszego wystąpienia elementu w liście, 
+    - =includes()= - zwraca true jeśli element występuje w liście, w przeciwnym wypadku zwraca false.
+
+   #+REVEAL: split
+
+   #+begin_src javascript
+    const doIHaveVolvo = cars.includes("Volvo"); // Sprawdza czy element znajduje się na liście
+    console.log(doIHaveVolvo); // true
+   #+end_src
+
+   #+REVEAL: split
+
+   #+begin_src javascript
+    const indexOfVolvo = cars.indexOf("Volvo"); // Zwraca indeks elementu na liście
+    console.log(indexOfVolvo); // 1
+   #+end_src
+
+*** slice() i splice()
+    - =slice()= - zwraca nową listę, która jest częścią starej listy, 
+    - =splice()= - usuwa elementy z listy, lub je zamienia.
+
+   #+REVEAL: split
+
+   #+begin_src javascript
     cars.splice(1, 0, "Ferrari"); // Dodaje element na indeksie 1
     console.log(cars); // Opel, Ferrari, Volvo, BMW
 
     cars.splice(1, 1); // Usuwa element na indeksie 1
     console.log(cars); // Opel, Volvo, BMW
+   #+end_src
 
+*** sort() i reverse()
+    - =sort()= - sortuje listę alfabetycznie, 
+    - =reverse()= - odwraca kolejność elementów na liście.
+
+   #+REVEAL: split
+
+   #+begin_src javascript
     cars.reverse(); // Odwraca kolejność elementów w liście
     console.log(cars); // BMW, Volvo, Opel
 
     cars.sort(); // Sortuje elementy w liście
     console.log(cars); // BMW, Opel, Volvo
+   #+end_src
 
+   #+REVEAL: split
+
+   #+begin_src javascript
     const newCars = cars.concat(["Ferrari", "Saab"]); // Łączy dwie listy
     console.log(newCars); // BMW, Opel, Volvo, Ferrari, Saab
-
    #+end_src
 
 ** Ciekawostki
+
    #+REVEAL: split
 
    #+begin_src javascript
     const cars = ["Saab", "Volvo", "BMW"];
 
-    cars[3] = "Ferrari"; // Dodaje element na indeksie 3
-    console.log(cars); // Saab, Volvo, BMW, Ferrari
+    // Dodaje element na indeksie 3
+    cars[3] = "Ferrari";
+    console.log(cars);
+    // Saab, Volvo, BMW, Ferrari
 
-    cars[10] = "Ferrari"; // Dodaje element na indeksie 10
-    console.log(cars); // Saab, Volvo, BMW, Ferrari, undefined, undefined, undefined, undefined, undefined, undefined, Ferrari
+    // Dodaje element na indeksie 10
+    cars[10] = "Ferrari"; 
+    console.log(cars); 
+    // Saab, Volvo, BMW, Ferrari, undefined, undefined, undefined, undefined, undefined, undefined, Ferrari
 
-    cars[5] = "Ferrari"; // Dodaje element na indeksie 5
-    console.log(cars); // Saab, Volvo, BMW, Ferrari, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+    // Dodaje element na indeksie 5
+    cars[5] = "Ferrari"; 
+    console.log(cars); 
+    // Saab, Volvo, BMW, Ferrari, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
 
-    cars[3] = undefined; // Usuwa element na indeksie 3
-    console.log(cars); // Saab, Volvo, BMW, undefined, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+    // Usuwa element na indeksie 3
+    cars[3] = undefined;
+    console.log(cars); 
+    // Saab, Volvo, BMW, undefined, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
 
-    cars[3] = null; // Dodaje element na indeksie 3
-    console.log(cars); // Saab, Volvo, BMW, null, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+    // Dodaje element na indeksie 3
+    cars[3] = null; 
+    console.log(cars); 
+    // Saab, Volvo, BMW, null, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
 
-    cars[3] = 0; // Dodaje element na indeksie 3
-    console.log(cars); // Saab, Volvo, BMW, 0, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+    // Dodaje element na indeksie 3
+    cars[3] = 0; 
+    console.log(cars); 
+    // Saab, Volvo, BMW, 0, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
 
-    cars[3] = ""; // Dodaje element na indeksie 3
-    console.log(cars); // Saab, Volvo, BMW, "", undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+    // Dodaje element na indeksie 3
+    cars[3] = "";
+    console.log(cars);
+    // Saab, Volvo, BMW, "", undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
 
-    cars[3] = false; // Dodaje element na indeksie 3
-    console.log(cars); // Saab, Volvo, BMW, false, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
+    // Dodaje element na indeksie 3
+    cars[3] = false; 
+    console.log(cars); 
+    // Saab, Volvo, BMW, false, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari
 
    #+end_src
 
@@ -166,5 +228,5 @@
     cars.length = 5; // Dodaje 5 elementów o wartości undefined do listy
     
     console.log(cars); // [undefined, undefined, undefined, undefined, undefined]
-   #+end_src
 
+   #+end_src
