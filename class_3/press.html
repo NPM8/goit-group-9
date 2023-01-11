@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Listy i ich metody</title><meta name="author" content="Dawid NPM8 Małysa"><meta name="description" content><meta name="keywords" content><style>.underline{text-decoration:underline}</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/moon.css" id="theme"><link rel="stylesheet" href="/class_3/press.f761a267.css"><script>if(window.location.search.match(/print-pdf/gi)){var link=document.createElement("link");link.rel="stylesheet",link.type="text/css",link.href="https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css",document.getElementsByTagName("head")[0].appendChild(link)}</script></head><body> <div class="reveal"> <div class="slides"> <section id="sec-title-slide"><h1 class="title">Listy i ich metody</h1><p class="subtitle"></p> <h2 class="author">Dawid NPM8 Małysa</h2> </section> <section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc"> <h2>Table of Contents</h2> <div id="text-table-of-contents" role="doc-toc"> <ul> <li><a href="#/slide-orgc1a986e">Listy (Arrays)</a></li> <li><a href="#/slide-orgccf32cd">Iterowanie po liście</a> <ul> <li><a href="#/slide-orgbb9b798">Benchmark</a></li> </ul> </li> <li><a href="#/slide-org8148c26">Wartości i ich referencje</a></li> <li><a href="#/slide-org5acb0e4">Metody list</a> <ul> <li><a href="#/slide-org06b08ee">push() i pop()</a></li> <li><a href="#/slide-org8ff5ba5">shift() i unshift()</a></li> <li><a href="#/slide-orgf7ec209">indexOf() i includes()</a></li> <li><a href="#/slide-org835f50f">slice() i splice()</a></li> <li><a href="#/slide-org4c1708c">sort() i reverse()</a></li> </ul> </li> <li><a href="#/slide-org6c435ea">Ciekawostki</a></li> </ul> </div> </div> </section> <section> <section id="slide-orgc1a986e"> <h2 id="orgc1a986e">Listy (Arrays)</h2> <p> W JavaScript, listy, znane również jako tablice, służą do przechowywania wielu wartości w jednej zmiennej. Możemy do nich dodawać nowe elementy, a także usuwać, odczytywać i modyfikować już istniejące elementy. </p> </section> <section id="slide-orgc1a986e-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    console.log(cars[<span style=&quot;color: #bd93f9; font-weight: bold;&quot;>0</span>]); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Saab</span>
+    cars[<span style=&quot;color: #bd93f9; font-weight: bold;&quot;>0</span>] = <span style=&quot;color: #f1fa8c;&quot;>&quot;Opel&quot;</span>
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Opel, Volvo, BMW</span>
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-orgc1a986e-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+    
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>lastElementIndex</span> = cars.length - <span style=&quot;color: #bd93f9; font-weight: bold;&quot;>1</span>;
+    console.log(lastElementIndex); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>2</span>
+    console.log(cars[lastElementIndex]); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>BMW</span>
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-orgccf32cd"> <h2 id="orgccf32cd">Iterowanie po liście</h2> <p> Iteracja to proces przejścia przez każdy element w danej kolekcji danych, takiej jak lista, i wykonanie określonej operacji na każdym z tych elementów. </p> </section> <section id="slide-orgccf32cd-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    <span style=&quot;color: #ff79c6;&quot;>for</span> (<span style=&quot;color: #ff79c6;&quot;>let</span> <span style=&quot;color: #ffc9e8;&quot;>i</span> = <span style=&quot;color: #bd93f9; font-weight: bold;&quot;>0</span>; i &lt; cars.length; i++) {
+        console.log(cars[i]);
+    }
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-orgccf32cd-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    <span style=&quot;color: #ff79c6;&quot;>for</span> (<span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>car</span> <span style=&quot;color: #ff79c6;&quot;>of</span> cars) {
+        console.log(car);
+    }
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-orgbb9b798"> <h3 id="orgbb9b798">Benchmark</h3> <p> Która z pętli jest szybsza? Czy one w ogóle są szybkie? Dowiedzmy się! </p> <p> <a href="https://jsben.ch/IQxsr">Wyniki</a> </p> </section> </section> <section> <section id="slide-org8148c26"> <h2 id="org8148c26">Wartości i ich referencje</h2> <p> W JavaScript, kiedy przypisujemy jedną zmienną o wartości typu złożonego do drugiej, to przypisujemy referencję do tej zmiennej, a nie jej wartość. Oznacza to, że obie zmienne wskazują na ten sam obiekt w pamięci. </p> </section> <section id="slide-org8148c26-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Ferrari&quot;</span>];
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars2</span> = cars;
+
+    c = cars[<span style=&quot;color: #bd93f9; font-weight: bold;&quot;>0</span>]
+
+    cars2[<span style=&quot;color: #bd93f9; font-weight: bold;&quot;>0</span>] = <span style=&quot;color: #f1fa8c;&quot;>&quot;Opel&quot;</span>;
+
+    cars.push(<span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>);
+
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Opel, Volvo, Ferrari, BMW </span>
+
+    console.log(c); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Saab</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-org5acb0e4"> <h2 id="org5acb0e4">Metody list</h2> <p> W JavaScript, listy mają wiele wbudowanych metod, które pozwalają na łatwe manipulowanie elementami listy. </p> </section> <section id="slide-org06b08ee"> <h3 id="org06b08ee">push() i pop()</h3> <ul> <li><code>push()</code> - dodaje nowy element na końcu listy,</li> <li><code>pop()</code> - usuwa ostatni element z listy.</li> </ul> </section> <section id="slide-org06b08ee-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    cars.push(<span style=&quot;color: #f1fa8c;&quot;>&quot;Ferrari&quot;</span>); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Dodaje element na ko&#324;cu listy</span>
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Saab, Volvo, BMW, Ferrari</span>
+
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>lastCar</span> = cars.pop(); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Usuwa ostatni element z listy</span>
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Saab, Volvo, BMW</span>
+    console.log(lastCar); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Ferrari</span>
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org8ff5ba5"> <h3 id="org8ff5ba5">shift() i unshift()</h3> <ul> <li><code>shift()</code> - usuwa pierwszy element z listy,</li> <li><code>unshift()</code> - dodaje nowy element na początku listy.</li> </ul> </section> <section id="slide-org8ff5ba5-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    cars.shift(); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Usuwa pierwszy element z listy</span>
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Volvo, BMW</span>
+
+    cars.unshift(<span style=&quot;color: #f1fa8c;&quot;>&quot;Opel&quot;</span>); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Dodaje element na pocz&#261;tku listy</span>
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Opel, Volvo, BMW</span>
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-orgf7ec209"> <h3 id="orgf7ec209">indexOf() i includes()</h3> <ul> <li><code>indexOf()</code> - zwraca indeks pierwszego wystąpienia elementu w liście,</li> <li><code>includes()</code> - zwraca true jeśli element występuje w liście, w przeciwnym wypadku zwraca false.</li> </ul> </section> <section id="slide-orgf7ec209-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>doIHaveVolvo</span> = cars.includes(<span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Sprawdza czy element znajduje si&#281; na li&#347;cie</span>
+    console.log(doIHaveVolvo); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>true</span>
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-orgf7ec209-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>indexOfVolvo</span> = cars.indexOf(<span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Zwraca indeks elementu na li&#347;cie</span>
+    console.log(indexOfVolvo); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>1</span>
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org835f50f"> <h3 id="org835f50f">slice() i splice()</h3> <ul> <li><code>slice()</code> - zwraca nową listę, która jest częścią starej listy,</li> <li><code>splice()</code> - usuwa elementy z listy, lub je zamienia.</li> </ul> </section> <section id="slide-org835f50f-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Opel&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    cars.splice(<span style=&quot;color: #bd93f9; font-weight: bold;&quot;>1</span>, <span style=&quot;color: #bd93f9; font-weight: bold;&quot;>0</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Ferrari&quot;</span>); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Dodaje element na indeksie 1</span>
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Opel, Ferrari, Volvo, BMW</span>
+
+    cars.splice(<span style=&quot;color: #bd93f9; font-weight: bold;&quot;>1</span>, <span style=&quot;color: #bd93f9; font-weight: bold;&quot;>1</span>); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Usuwa element na indeksie 1</span>
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Opel, Volvo, BMW</span>
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org4c1708c"> <h3 id="org4c1708c">sort() i reverse()</h3> <ul> <li><code>sort()</code> - sortuje listę alfabetycznie,</li> <li><code>reverse()</code> - odwraca kolejność elementów na liście.</li> </ul> </section> <section id="slide-org4c1708c-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Opel&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    cars.reverse(); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Odwraca kolejno&#347;&#263; element&#243;w w li&#347;cie</span>
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>BMW, Volvo, Opel</span>
+
+    cars.sort(); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Sortuje elementy w li&#347;cie</span>
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>BMW, Opel, Volvo</span>
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org4c1708c-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Opel&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>newCars</span> = cars.concat([<span style=&quot;color: #f1fa8c;&quot;>&quot;Ferrari&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>]); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>&#321;&#261;czy dwie listy</span>
+    console.log(newCars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>BMW, Opel, Volvo, Ferrari, Saab</span>
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> <section> <section id="slide-org6c435ea"> <h2 id="org6c435ea">Ciekawostki</h2> </section> <section id="slide-org6c435ea-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+
+    <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Dodaje element na indeksie 3</span>
+    cars[<span style=&quot;color: #bd93f9; font-weight: bold;&quot;>3</span>] = <span style=&quot;color: #f1fa8c;&quot;>&quot;Ferrari&quot;</span>;
+    console.log(cars);
+    <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Saab, Volvo, BMW, Ferrari</span>
+
+    <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Dodaje element na indeksie 10</span>
+    cars[<span style=&quot;color: #bd93f9; font-weight: bold;&quot;>10</span>] = <span style=&quot;color: #f1fa8c;&quot;>&quot;Ferrari&quot;</span>; 
+    console.log(cars); 
+    <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Saab, Volvo, BMW, Ferrari, undefined, undefined, undefined, undefined, undefined, undefined, Ferrari</span>
+
+    <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Dodaje element na indeksie 5</span>
+    cars[<span style=&quot;color: #bd93f9; font-weight: bold;&quot;>5</span>] = <span style=&quot;color: #f1fa8c;&quot;>&quot;Ferrari&quot;</span>; 
+    console.log(cars); 
+    <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Saab, Volvo, BMW, Ferrari, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari</span>
+
+    <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Usuwa element na indeksie 3</span>
+    cars[<span style=&quot;color: #bd93f9; font-weight: bold;&quot;>3</span>] = <span style=&quot;color: #8be9fd;&quot;>undefined</span>;
+    console.log(cars); 
+    <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Saab, Volvo, BMW, undefined, undefined, Ferrari, undefined, undefined, undefined, undefined, Ferrari</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> <section id="slide-org6c435ea-split"> <iframe style="background-color:#fff" height="500px" width="100%" srcdoc="<html><body><pre><code class=&quot;klipse&quot; >
+    <span style=&quot;color: #ff79c6;&quot;>const</span> <span style=&quot;color: #ffc9e8;&quot;>cars</span> = [<span style=&quot;color: #f1fa8c;&quot;>&quot;Saab&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;Volvo&quot;</span>, <span style=&quot;color: #f1fa8c;&quot;>&quot;BMW&quot;</span>];
+    cars.length = <span style=&quot;color: #bd93f9; font-weight: bold;&quot;>0</span>; <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Usuwa wszystkie elementy z listy</span>
+    
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>[]</span>
+    
+    cars.length = <span style=&quot;color: #bd93f9; font-weight: bold;&quot;>5</span>; <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>Dodaje 5 element&#243;w o warto&#347;ci undefined do listy</span>
+    
+    console.log(cars); <span style=&quot;color: #6272a4;&quot;>// </span><span style=&quot;color: #6272a4;&quot;>[undefined, undefined, undefined, undefined, undefined]</span>
+
+
+</code></pre>
+<link rel= &quot;stylesheet&quot; type= &quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;>
+<style>
+.CodeMirror { font-size: 2em; }
+</style>
+<script>
+window.klipse_settings = { selector_eval_js: &quot;.klipse&quot; };
+</script>
+<script src= &quot;https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js&quot;></script></body></html>
+"> </iframe> </section> </section> </div> </div> <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script> <script>Reveal.initialize({dependencies:[{src:"https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js",condition:function(){return!!document.querySelector("[data-markdown]")}},{src:"https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js",condition:function(){return!!document.querySelector("[data-markdown]")}},{src:"https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js",async:!0,condition:function(){return!!document.body.classList}},{src:"https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js",async:!0,condition:function(){return!!document.body.classList}}]});</script> </body></html>

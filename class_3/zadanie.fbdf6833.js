@@ -1,0 +1,2 @@
+const data=["vJrwpWtwJgWrhcsFMMfFFhFp","jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL","PmmdzqPrVvPwwTWBwg","wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn","ttgJtRGJQctTZtZT","CrZsJsPPZsGzwwsLwLmpwMDw"];let output="";for(let t=0;t<data.length;t++){const o=data[t];console.log(data[t]);const s=[o.slice(0,o.length/2),o.slice(o.length/2).split("")];for(let t=0;t<s[0].length;t++){const o=s[0][t];if(s[1].includes(o)){output+=o;break}}output.length<t+1&&(output+=" ")}console.log(output);
+//# sourceMappingURL=zadanie.fbdf6833.js.map
