@@ -1,6 +1,9 @@
 #+title: Listy i ich metody
 #+author: Dawid NPM8 Małysa
-#+options: timestamp:nil
+#+options: timestamp:nil toc:2 num:nil reveal_width:1200 reveal_height:720
+#+REVEAL_MARGIN: 0
+#+REVEAL_MAX_SCALE: 0
+#+REVEAL_EXTRA_CSS: ../press_styles.css
 
 ** Listy (Arrays)
    W JavaScript, listy, znane również jako tablice, służą do przechowywania wielu wartości w jednej zmiennej.
